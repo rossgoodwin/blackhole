@@ -43,11 +43,12 @@ function draw() {
         basicMaterial(249, 105, 14);
       } 
       else {
-        ambientMaterial(10,8,12,155);
+        ambientMaterial(10,8,12,245);
       }
       var bh = blackholes[i];
       var radius = bh['radius_ratio'] * sphereSize;
       ellipsoid(radius,radius,radius);
+      pointLight(255,248,231,radius,radius,radius);
 
       if (i < blackholes.length-stepSize) {
         var nextRadius = blackholes[i+stepSize]['radius_ratio']*sphereSize;
