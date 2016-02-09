@@ -1,6 +1,7 @@
 var blackholes;
 var sphereSize;
 var stepSize = 5;
+var curRad = 1.0;
 
 function getBaseLog(x, y) {
   return Math.log(y) / Math.log(x);
@@ -24,7 +25,7 @@ function draw() {
 
   orbitControl();
 
-  var camX = -windowWidth+frameCount*Math.log(frameCount*frameCount);
+  var camX = -windowWidth+frameCount*curRad*Math.log(frameCount*frameCount);
   var camY = -frameCount*Math.log(frameCount);
   var camZ = frameCount*Math.log(frameCount*frameCount)-100;
 
@@ -52,6 +53,7 @@ function draw() {
         var nextRadius = blackholes[i+stepSize]['radius_ratio']*sphereSize;
         var xOver = radius+nextRadius+nextRadius/4;
         if (camX+width/2 > totalX && i != 0) {
+          curRad = radius;
           $('#textbox').html(
             '<p class="infop">NAME: '+bh['name']+'<br>SCHWARZCHILD RADIUS: '+parseInt(bh['radius']).toExponential(4)+' METERS</p>'
           );
