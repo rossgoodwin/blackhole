@@ -26,7 +26,7 @@ function draw() {
 
   var camX = -windowWidth+frameCount*frameCount*Math.log(frameCount*frameCount);
   var camY = -Math.log(frameCount*frameCount);
-  var camZ = frameCount*Math.log(frameCount)-100;
+  var camZ = frameCount*Math.log(frameCount*frameCount)-100;
 
   camera(camX, camY, camZ);
 
