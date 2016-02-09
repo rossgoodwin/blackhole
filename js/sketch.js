@@ -24,9 +24,9 @@ function draw() {
 
   orbitControl();
 
+  var camX = -windowWidth+frameCount*frameCount*Math.log(frameCount*frameCount);
   var camY = -Math.log(frameCount*frameCount);
   var camZ = frameCount*Math.log(frameCount)-100;
-  var camX = -windowWidth+frameCount*Math.log(frameCount*frameCount);
 
   camera(camX, camY, camZ);
 
