@@ -7,7 +7,7 @@ function getBaseLog(x, y) {
 }
 
 function preload() {
-  blackholes = loadJSON('../data/blackholes.json');
+  blackholes = loadJSON('data/blackholes.json');
 }
 
 function setup() {
