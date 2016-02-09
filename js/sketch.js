@@ -1,6 +1,6 @@
 var blackholes;
 var sphereSize;
-var stepSize = 5;
+var stepSize = 1;
 var curRad = 5.0;
 
 function getBaseLog(x, y) {
