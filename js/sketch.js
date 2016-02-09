@@ -53,7 +53,7 @@ function draw() {
         var nextRadius = blackholes[i+stepSize]['radius_ratio']*sphereSize;
         var xOver = radius+nextRadius+nextRadius/4;
         if (camX+width/2 > totalX && i != 0) {
-          curRad = radius;
+          curRad = bh['radius_ratio'];
           $('#textbox').html(
             '<p class="infop">NAME: '+bh['name']+'<br>SCHWARZCHILD RADIUS: '+parseInt(bh['radius']).toExponential(4)+' METERS</p>'
           );
