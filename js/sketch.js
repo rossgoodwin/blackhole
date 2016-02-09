@@ -43,7 +43,7 @@ function draw() {
         basicMaterial(249, 105, 14);
       } 
       else {
-        ambientMaterial(10,8,12,245);
+        ambientMaterial(5,5,5,245);
       }
       var bh = blackholes[i];
       var radius = bh['radius_ratio'] * sphereSize;
