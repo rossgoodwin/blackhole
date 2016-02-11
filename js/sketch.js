@@ -12,12 +12,12 @@ function getBaseLog(x, y) {
 function preload() {
   blackholes = loadJSON('data/blackholes.json');
   img = loadImage('assets/sun.jpg');
+  blackholes.sort(function(a,b){ return a['radius'] - b['radius']; });
+  console.log(blackholes);
 }
 
 function setup() {
   createCanvas(windowWidth, windowHeight, WEBGL);
-  blackholes.sort(function(a,b){ return a['radius'] - b['radius']; });
-  console.log(blackholes);
   sphereSize = 25;
 }
 
@@ -100,7 +100,7 @@ function draw() {
         if (camX+width/2 > totalX && i != 0) {
           curRad = bh['radius_ratio'];
           $('#textbox').html(
-            '<p class="infop">NAME: '+bh['name']+'<br>SCHWARZCHILD RADIUS: '+parseInt(bh['radius']).toExponential(4)+' METERS</p>'
+            '<p class="infop">'+bh['name']+'<br>Schwarzchild radius: '+parseInt(bh['radius']).toExponential(4)+' meters</p>'
           );
         }
         totalX += xOver;
