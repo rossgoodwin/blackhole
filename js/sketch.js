@@ -68,11 +68,11 @@ function draw() {
       push();
       var rnd = Math.random();
       if (rnd < 0.33) {
-        rotateX(frameCount * Math.random() * 0.01);
+        rotateX(frameCount * Math.random() * 0.25);
       } else if (rnd >= 0.33 && rnd < 0.66) {
-        rotateY(frameCount * Math.random() * 0.01);        
+        rotateY(frameCount * Math.random() * 0.25);        
       } else {
-        rotateZ(frameCount * Math.random() * 0.01);        
+        rotateZ(frameCount * Math.random() * 0.25);        
       }     
 
       sphere(radius);
