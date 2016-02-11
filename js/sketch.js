@@ -66,7 +66,7 @@ function draw() {
       var radius = bh['radius_ratio'] * sphereSize;
 
       push();
-      rotateY(frameCount * 0.125);
+      rotateZ(frameCount * 0.125);
       // var rnd = Math.random();
       // if (rnd < 0.33) {
       //   rotateX(frameCount * Math.random() * 0.25);
