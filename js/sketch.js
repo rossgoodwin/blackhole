@@ -108,4 +108,9 @@ function draw() {
       }
     }
   }
+
+  if (frameCount > 10 && frameCount < 20) {
+    $('#textbox').fadeIn("slow");
+    $('#line').fadeIn("slow");
+  }
 }
