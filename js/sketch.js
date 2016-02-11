@@ -33,14 +33,12 @@ function draw() {
     camZ = Math.log(frameCount*frameCount) - 200;
   } else if (frameCount > 599 && frameCount < 2048) {
     directionalLight(255,248,231,0,0,-10);
-    // directionalLight(255,248,231,0,0,10);
     camX += Math.log(frameCount*frameCount);
     camY += -Math.log(frameCount);
     camZ += Math.log(frameCount*frameCount);
   } else {
     $('#poembox').fadeIn("slow");
     directionalLight(255,248,231,0,0,-10);
-    // directionalLight(255,248,231,0,0,10);
     camX += 10*Math.log(frameCount*frameCount);
     camY += -Math.log(frameCount);
     camZ += Math.log(frameCount*frameCount);
@@ -48,22 +46,32 @@ function draw() {
 
   camera(camX, camY, camZ);
 
-  // ambientLight(255, 248, 231);
-
   translate(-windowWidth/2, windowHeight/2, 0);
 
   var totalX = 0;
   for (var i=0; i<blackholes.length; i++) {
     if (i % stepSize === 0) {
+      var bh = blackholes[i];
+      var radius = bh['radius_ratio'] * sphereSize;
+
       if (i === 0) {
-        // specularMaterial(211, 84, 0);
+        push();
+        // translate(radius*2, -radius*2, -radius);
+        // rotateX(-PI/4)
+        // rotateZ(-PI/4)
+        // // rotateZ(-PI/2)
+        // pointLight(231, 231, 231, 100, 100, 0);
+        // basicMaterial(245, 215, 110, 127);
+        // // rotateY(-frameCount*0.02);
+        // // tint(255, 127);
+        // cone(radius*0.5, radius*3);
+        pop();
+
         texture(img);
       } 
       else {
         specularMaterial(51);
       }
-      var bh = blackholes[i];
-      var radius = bh['radius_ratio'] * sphereSize;
 
       push();
       var rnd = Math.random();
