@@ -67,7 +67,11 @@ function draw() {
 
       push();
       var rnd = Math.random();
-      if (rnd < 0.33) {
+
+      if (i === 0) {
+        rotateY(frameCount * 0.007);
+        // rnd = 2.0;
+      } else if (rnd < 0.33) {
         rotateX(frameCount * Math.random() * 0.1);
       } else if (rnd >= 0.33 && rnd < 0.66) {
         rotateY(frameCount * Math.random() * 0.1);        
