@@ -10,17 +10,22 @@
 
   <link href='https://fonts.googleapis.com/css?family=Cousine' rel='stylesheet' type='text/css'>
 
+  <!-- Loading Bar -->
+  <link href="css/loader.css" rel="stylesheet">
+
 <style>
 body {
   margin: 0;
   font-family: 'Cousine', monospace;
+  background-color: #000000;
 }
 
 #line {
   position: fixed;
+  bottom: 0;
   z-index: 9999;
   border-right: 1px solid #F2F1EF;
-  height: 100%;
+  height: 33%;
   width: 50%;
   left: 0;
 }
@@ -48,6 +53,8 @@ body {
   color: #F2F1EF;
 }
 
+
+
 </style>
 
 </head>
@@ -66,6 +73,7 @@ body {
       <small>&ndash;H.P. Lovecraft</small>
     </p>
   </div>
+  <div id="p5_loading" class="loader loadingdiv"></div>
   <script src="js/jquery-2.2.0.min.js"></script>
   <script src="js/p5.min.js"></script>
   <script src="js/sketch.js"></script>
