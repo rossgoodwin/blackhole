@@ -25,6 +25,15 @@ body {
   left: 0;
 }
 
+#poembox {
+  /*position: fixed;*/
+  /*z-index: 999;*/
+  margin: 35% auto auto 10%;
+  width: 100%;
+  font-size: 0.7em;
+  display: none;
+}
+
 #textbox {
   position: fixed;
   z-index: 999;
@@ -43,10 +52,21 @@ body {
 </head>
 
 <body>
-  <div id="line"></div>
+  <div id="line">
+    <div id="poembox">
+      <p class="infop">
+        I have seen the dark universe yawning,<br>
+        Where the black planets roll without aim;<br>
+        Where they roll in their horror unheeded,<br>
+        without knowledge or lustre or name.<br>
+        <small>&ndash;H.P. Lovecraft, <em>Nemesis</em></small>
+      </p>
+    </div>
+  </div>
   <div id="textbox">
     <p class="infop">NAME: THE SUN<br>RADIUS: 6.955e+8 METERS</p>
   </div>
+
   <script src="js/jquery-2.2.0.min.js"></script>
   <script src="js/p5.min.js"></script>
   <script src="js/sketch.js"></script>

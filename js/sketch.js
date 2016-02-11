@@ -11,6 +11,7 @@ function getBaseLog(x, y) {
 
 function preload() {
   blackholes = loadJSON('data/blackholes.json');
+  img = loadImage('assets/sun.jpg');
 }
 
 function setup() {
@@ -18,7 +19,6 @@ function setup() {
   blackholes.sort(function(a,b){ return a['radius'] - b['radius']; });
   console.log(blackholes);
   sphereSize = 25;
-  img = loadImage('assets/sun.jpg');
 }
 
 function draw() {
@@ -38,6 +38,7 @@ function draw() {
     camY += -Math.log(frameCount);
     camZ += Math.log(frameCount*frameCount);
   } else {
+    $('#poembox').fadeIn("slow");
     directionalLight(255,248,231,0,0,-10);
     // directionalLight(255,248,231,0,0,10);
     camX += 10*Math.log(frameCount*frameCount);
@@ -63,7 +64,19 @@ function draw() {
       }
       var bh = blackholes[i];
       var radius = bh['radius_ratio'] * sphereSize;
+
+      push();
+      var rnd = Math.random();
+      if (rnd < 0.33) {
+        rotateX(frameCount * Math.random() * 0.01);
+      } else if (rnd >= 0.33 && rnd < 0.66) {
+        rotateY(frameCount * Math.random() * 0.01);        
+      } else {
+        rotateZ(frameCount * Math.random() * 0.01);        
+      }     
+
       sphere(radius);
+      pop();
 
       if (i < blackholes.length-stepSize) {
         var nextRadius = blackholes[i+stepSize]['radius_ratio']*sphereSize;
