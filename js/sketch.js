@@ -4,6 +4,7 @@ var stepSize = 3;
 var curRad = 5.0;
 var camX, camY, camZ;
 var img;
+var volume;
 
 function getBaseLog(x, y) {
   return Math.log(y) / Math.log(x);
@@ -12,6 +13,7 @@ function getBaseLog(x, y) {
 function preload() {
   blackholes = loadJSON('data/blackholes.json');
   img = loadImage('assets/sun.jpg');
+  spacenoise = loadSound('assets/spacenoise.mp3');
 }
 
 function setup() {
@@ -19,6 +21,9 @@ function setup() {
   blackholes.sort(function(a,b){ return a['radius'] - b['radius']; });
   console.log(blackholes);
   sphereSize = 25;
+  volume = 0.01;
+  spacenoise.setVolume(volume);
+  spacenoise.play();
 }
 
 function draw() {
@@ -28,20 +33,25 @@ function draw() {
 
 
   if (frameCount < 600) {
+    volume += 0.001;
     camX = (200-windowWidth)+50*Math.log(frameCount*frameCount);
     camY = 200-Math.log(frameCount*frameCount);
     camZ = Math.log(frameCount*frameCount) - 200;
   } else if (frameCount > 599 && frameCount < 2048) {
+    volume += 0.005;
     directionalLight(255,248,231,0,0,-10);
     camX += Math.log(frameCount*frameCount);
     camY += -Math.log(frameCount);
     camZ += Math.log(frameCount*frameCount);
   } else {
+    volume += 0.01;
     directionalLight(255,248,231,0,0,-10);
     camX += 10*Math.log(frameCount*frameCount);
     camY += -Math.log(frameCount);
     camZ += Math.log(frameCount*frameCount);
   }
+
+  spacenoise.setVolume(volume);
 
   if (frameCount > 2048 && frameCount < 3000) {
     $('#poembox').fadeIn("slow");
