@@ -22,7 +22,7 @@ function setup() {
 }
 
 function draw() {
-  background(255, 248, 231); // cosmic latte
+  background(0, 0, 0);
 
   orbitControl();
 
