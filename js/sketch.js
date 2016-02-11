@@ -12,12 +12,12 @@ function getBaseLog(x, y) {
 function preload() {
   blackholes = loadJSON('data/blackholes.json');
   img = loadImage('assets/sun.jpg');
-  blackholes.sort(function(a,b){ return a['radius'] - b['radius']; });
-  console.log(blackholes);
 }
 
 function setup() {
   createCanvas(windowWidth, windowHeight, WEBGL);
+  blackholes.sort(function(a,b){ return a['radius'] - b['radius']; });
+  console.log(blackholes);
   sphereSize = 25;
 }
 
@@ -108,9 +108,8 @@ function draw() {
       }
     }
   }
-
-  if (frameCount > 10 && frameCount < 20) {
-    $('#textbox').fadeIn("slow");
-    $('#line').fadeIn("slow");
+  if (frameCount > 10 && frameCount < 15) {
+    $('#line').fadeIn();
+    $('#textbox').fadeIn();
   }
 }
